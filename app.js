@@ -1,4 +1,6 @@
-const form = document.querySelector('#price-form');
+document.addEventListener('DOMContentLoaded', () => {
+
+  const form = document.querySelector('#price-form');
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -11,16 +13,17 @@ form.addEventListener('submit', async (event) => {
   const payload = JSON.stringify({ price: price }); // Include the price in the 'body' field
 
   try {
-    const response = await fetch('https://UpdateWithYourValue.execute-api.us-east-1.amazonaws.com/beta', {
+    const response = await fetch('https://foobar.execute-api.us-east-1.amazonaws.com/beta', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(payload)
+      body: payload
     });
 
     // Process the response as needed
   } catch (error) {
     console.error('Error:', error);
   }
+});
 });
